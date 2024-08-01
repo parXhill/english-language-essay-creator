@@ -1,17 +1,29 @@
 import React, {useState} from 'react';
+import './Components.css'
 
-export function Opening() {
+export default function Components({activePage, setActivePage, generateEssay}){
+
+    let essayFormStyle;
+    let openingStyle;
+    let examplesStyle;
+
+    //if (activePage !== 2){examplesStyle = {display: "none"}}
+    //if (activePage !== 1){essayFormStyle = {display: "none"}}
+    //if (activePage !== 0){openingStyle = {display: "none"}}
+
+
+function Opening() {
 
     return (
     
-    <div id="opening" className="container">
+    <div style={openingStyle} id="opening" className="container">
         <h2>Click here to create an English Language Essay</h2>
         <button>Start</button>
         </div>)
 
 };
 
-export function EssayForm() {
+function EssayForm() {
 
     let selectedOption;
 
@@ -19,7 +31,7 @@ export function EssayForm() {
 
     return (
     
-    <div id="essayForm" className="container">
+    <div style={essayFormStyle} id="essayForm" className="container">
         <h2>Select or enter an essay prompt</h2>
         <form>
         <label htmlFor="essayPrompt">Select an essay prompt:</label>
@@ -113,6 +125,73 @@ export function EssayForm() {
           <label for="ownEssayPrompt">Your own essay prompt</label>
           <input id="ownEssayPrompt"></input>
         </form>
+        <button>Generate essay</button>
     </div>)
 
 };
+
+function Examples() {
+
+    const [formData, setFormData] = useState({
+        example1: '',
+        example2: '',
+        example3: '',
+        example4: '',
+        example5: '',
+        example6: '',
+      });
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData((prevData) => ({
+          ...prevData,
+          [name]: value,
+        }));
+        console.log(formData)
+      };
+
+    const submitExamples = (event) => {
+        event.preventDefault();
+    
+        generateEssay(formData);
+      };
+
+    const handleButtonClick = () => {
+        document.getElementById('exampleForm').submit();
+      };
+    
+
+    return (
+    
+    <div style={examplesStyle} id="examples" className="container">
+        <h2>Enter contemporary examples you would like the essay to contain</h2>
+        <form id="exampleForm" onSubmit={submitExamples}>
+          <label for="ownEssayPrompt">Example 1: </label>
+          <input value={formData.example1} id="example1" name="example1" onChange={handleChange}></input>
+          <label for="ownEssayPrompt">Example 2: </label>
+          <input value={formData.example2} id="example2" name="example2"onChange={handleChange}></input>
+          <label for="ownEssayPrompt">Example 3: </label>
+          <input value={formData.example3} id="example3" name="example3"onChange={handleChange}></input>
+          <label for="ownEssayPrompt">Example 4: </label>
+          <input value={formData.example4} id="example4" name="example4"onChange={handleChange}></input>
+          <label for="ownEssayPrompt">Example 5: </label>
+          <input value={formData.example5} id="example5" name="example5"onChange={handleChange}></input>
+          <label for="ownEssayPrompt">Example 6: </label>
+          <input value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
+        </form>
+        <button type="button" onClick={handleButtonClick}>Generate essay</button>
+        <button>Back</button>
+    </div>)
+
+};
+
+
+
+return (<>
+<Opening/>
+<EssayForm/>
+<Examples/>
+</>
+
+)
+}
