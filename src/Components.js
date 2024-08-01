@@ -147,17 +147,11 @@ function Examples() {
           ...prevData,
           [name]: value,
         }));
-        console.log(formData)
       };
 
     const submitExamples = (event) => {
         event.preventDefault();
-    
         generateEssay(formData);
-      };
-
-    const handleButtonClick = () => {
-        document.getElementById('exampleForm').submit();
       };
     
 
@@ -165,21 +159,21 @@ function Examples() {
     
     <div style={examplesStyle} id="examples" className="container">
         <h2>Enter contemporary examples you would like the essay to contain</h2>
-        <form id="exampleForm" onSubmit={submitExamples}>
-          <label for="ownEssayPrompt">Example 1: </label>
+        <form id="exampleForm">
+          <label for="example1">Example 1: </label>
           <input value={formData.example1} id="example1" name="example1" onChange={handleChange}></input>
-          <label for="ownEssayPrompt">Example 2: </label>
+          <label for="example2">Example 2: </label>
           <input value={formData.example2} id="example2" name="example2"onChange={handleChange}></input>
-          <label for="ownEssayPrompt">Example 3: </label>
+          <label for="example3">Example 3: </label>
           <input value={formData.example3} id="example3" name="example3"onChange={handleChange}></input>
-          <label for="ownEssayPrompt">Example 4: </label>
+          <label for="example4">Example 4: </label>
           <input value={formData.example4} id="example4" name="example4"onChange={handleChange}></input>
-          <label for="ownEssayPrompt">Example 5: </label>
+          <label for="example5">Example 5: </label>
           <input value={formData.example5} id="example5" name="example5"onChange={handleChange}></input>
-          <label for="ownEssayPrompt">Example 6: </label>
+          <label for="example6">Example 6: </label>
           <input value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
-        <button type="button" onClick={handleButtonClick}>Generate essay</button>
+        <button type="button" onClick={submitExamples}>Generate essay</button>
         <button>Back</button>
     </div>)
 
