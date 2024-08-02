@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Components.css'
 
-export default function Components({activePage, setActivePage, getEssayExamples, essayPrompt, setEssayPrompt}){
+export default function Components({requestEssay, activePage, setActivePage, getEssayExamples, essayPrompt, setEssayPrompt}){
 
     let essayFormStyle;
     let openingStyle;
@@ -134,7 +134,7 @@ function EssayForm() {
 };
 
 function Examples() {
-
+  
     const [formData, setFormData] = useState({
         example1: '',
         example2: '',
@@ -155,6 +155,8 @@ function Examples() {
     const submitExamples = (event) => {
         event.preventDefault();
         getEssayExamples(formData);
+
+        
       };
     
 
