@@ -1,13 +1,8 @@
-let example1 = '1'
-let example2 = '2'
-let example3 = '3'
-let example4 = '4'
-let example5 = '5'
-let example6 = '6'
-let essayPrompt = "1"
 
+import React from 'react';
+export default function PromptTemplate({examplesData, essayPrompt, gptRequestString, setGPTRequestString}){
 
-const promptTemplate = `Prompt with examples
+setGPTRequestString(`Prompt with examples
 
 Based on the content given in the parenthesis below, you will write an essay in a particular format for a VCE English Language class.
 (You will be given the key course knowledge outcomes and skills for this course.
@@ -60,12 +55,12 @@ ${essayPrompt}
 
 Examples to be used:
 
-1. ${example1}
-2. ${example2}
-3. ${example3}
-4. ${example4}
-5. ${example5}
-6. ${example6}
+1. ${examplesData.example1}
+2. ${examplesData.example2}
+3. ${examplesData.example3}
+4. ${examplesData.example4}
+5. ${examplesData.example5}
+6. ${examplesData.example6}
 
 
 Metalanguage Section:
@@ -220,6 +215,4 @@ Semantics
 	•	Usage-based accounts
 	•	Functions of language: Referential, Emotive, Conative, Phatic, Metalinguistic, Poetic
 
-`
-
-export {promptTemplate};
+`)};
