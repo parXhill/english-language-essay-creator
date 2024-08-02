@@ -2,8 +2,7 @@
 import React from 'react';
 export default function PromptTemplate({examplesData, essayPrompt, gptRequestString, setGPTRequestString}){
 
-setGPTRequestString(`Prompt with examples
-
+setGPTRequestString(`
 Based on the content given in the parenthesis below, you will write an essay in a particular format for a VCE English Language class.
 (You will be given the key course knowledge outcomes and skills for this course.
 You will be given guidelines on the structure of the essay.
@@ -215,4 +214,5 @@ Semantics
 	•	Usage-based accounts
 	•	Functions of language: Referential, Emotive, Conative, Phatic, Metalinguistic, Poetic
 
+	Format your response like this *Introduction* introductioncontent *BodyParagraph1* bodyparagraph1content *BodyParagraph2* bodyparagraph2content *BodyParagraph3* bodyparagraph3content *Conclusion* conclusion
 `)};

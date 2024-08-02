@@ -32,9 +32,6 @@ function App() {
   
   async function getResponse(){
 
-          console.log("test this")
-          console.log(gptRequestString);
-
           const userInput = gptRequestString;
           const response = await fetch('https://api.openai.com/v1/chat/completions', {
               method: 'POST',
@@ -45,7 +42,7 @@ function App() {
               body: JSON.stringify({
                   model: 'gpt-4o',  //gpt-3.5-turbo
                   messages: [{role: 'user', content: userInput}],
-                  max_tokens: 20
+                  //max_tokens: 20
               })
           });
   

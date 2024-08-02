@@ -208,12 +208,38 @@ function LoadingScreen2() {
 
 function Essay() {
 
+  const splitEssay = essayResponse.split(/\*(Introduction|BodyParagraph1|BodyParagraph2|BodyParagraph3|Conclusion)\*/);
+
+  const getSectionContent = (section) => {
+    const index = splitEssay.indexOf(section);
+    if (index !== -1 && index + 1 < splitEssay.length) {
+      return splitEssay[index + 1].trim(); // Get the content right after the section header
+    }
+    return null; // Return null if the section is not found
+  };
+
+  const introductionContent = getSectionContent("Introduction");
+  const bodyParagraph1Content = getSectionContent("BodyParagraph1");
+  const bodyParagraph2Content = getSectionContent("BodyParagraph2");
+  const bodyParagraph3Content = getSectionContent("BodyParagraph3");
+  const conclusionContent = getSectionContent("Conclusion");
+
+  
   return (
   
   <div style={essay} id="essay" className="container">
       <h2>Your Essay</h2>
       <h3>Essay Topic here</h3>
-      <p>{essayResponse}</p>
+      <h4>Introduction</h4>
+      <p>{introductionContent}</p>
+      <h4>Paragraph 1</h4>
+      <p>{bodyParagraph1Content}</p>
+      <h4>Paragraph 2</h4>
+      <p>{bodyParagraph2Content}</p>
+      <h4>Paragraph 3</h4>
+      <p>{bodyParagraph3Content}</p>
+      <h4>Conclusion</h4>
+      <p>{conclusionContent}</p>
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
       <button type="button">Grade essay</button>
       <button>Back</button>
