@@ -26,7 +26,7 @@ function Opening() {
     
     <div style={openingStyle} id="opening" className="container">
         <h2>Click here to create an English Language Essay</h2>
-        <button>Start</button>
+        <button onClick={() => setActivePage(1)}>Start</button>
         </div>)
 
 };
@@ -128,7 +128,7 @@ function EssayForm() {
             </option>
           </select>
         </form>
-        <button>Next</button>
+        <button onClick={() => setActivePage(2)}>Next</button>
     </div>)
 
 };
@@ -155,6 +155,7 @@ function Examples() {
     const submitExamples = (event) => {
         event.preventDefault();
         getEssayExamples(formData);
+        setActivePage(3);
 
         
       };
