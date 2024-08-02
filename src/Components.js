@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Components.css'
 
-export default function Components({requestEssay, activePage, setActivePage, getEssayExamples, essayPrompt, setEssayPrompt}){
+export default function Components({essayResponse, requestEssay, activePage, setActivePage, getEssayExamples, essayPrompt, setEssayPrompt}){
 
     let essayFormStyle;
     let openingStyle;
@@ -214,7 +214,7 @@ function Essay() {
   <div style={essay} id="essay" className="container">
       <h2>Your Essay</h2>
       <h3>Essay Topic here</h3>
-      <p>essay here</p>
+      <p>{essayResponse}</p>
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
       <button type="button">Grade essay</button>
       <button>Back</button>
