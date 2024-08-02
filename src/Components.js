@@ -129,6 +129,7 @@ function EssayForm() {
           </select>
         </form>
         <button onClick={() => setActivePage(2)}>Next</button>
+        <button onClick={() => setActivePage(0)}>Back</button>
     </div>)
 
 };
@@ -179,7 +180,7 @@ function Examples() {
           <input value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
         <button type="button" onClick={submitExamples}>Generate essay</button>
-        <button>Back</button>
+        <button onClick={() => setActivePage(1)}>Back</button>
     </div>)
 
 };
@@ -231,7 +232,7 @@ function Essay() {
       <p>{conclusionContent}</p>
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
       <button type="button" onClick={() => setActivePage(5)}>Grade essay</button>
-      <button>Back</button>
+      <button onClick={() => setActivePage(2)}>Back</button>
       </div>)
 };
 
@@ -249,15 +250,34 @@ function LoadingScreen2() {
 
 function Feedback() {
 
+  const splitFeedback = feedbackResponse.split(/(Grade:|Positive feedback:|Improvement tips:)/);
+
+
+  const getSectionContent = (section) => {
+    const index = splitFeedback.indexOf(section);
+    if (index !== -1 && index + 1 < splitFeedback.length) {
+      return splitFeedback[index + 1].trim(); // Get the content right after the section header
+    }
+    return null; // Return null if the section is not found
+  };
+
+  const gradeContent = getSectionContent("Grade:");
+  const positiveFeedbackContent = getSectionContent("Positive feedback:");
+  const improvementTipsContent = getSectionContent("Improvement tips:");
+
   return (
   
   <div style={feedback} id="feedback" className="container">
       <h2>Feedback</h2>
-      <h3>Grade here</h3>
-      <p>{feedbackResponse}</p>
+      <h3>Grade</h3>
+      <h1>{gradeContent}</h1>
+      <h3>What went well</h3>
+      <p>{positiveFeedbackContent}</p>
+      <h3>Improvement tips</h3>
+      <p>{improvementTipsContent}</p>
       <h4>Thank you for using the EL essay generator</h4>
       <button type="button" onClick={() => setActivePage(0)}>Create a new essay</button>
-      <button>Back</button>
+      <button onClick={() => setActivePage(4)}>Back</button>
       </div>)
 
 };
