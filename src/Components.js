@@ -6,10 +6,18 @@ export default function Components({activePage, setActivePage, generateEssay}){
     let essayFormStyle;
     let openingStyle;
     let examplesStyle;
+    let loadingScreen;
+    let loadingScreen2;
+    let essay;
+    let feedback;
 
-    //if (activePage !== 2){examplesStyle = {display: "none"}}
-    //if (activePage !== 1){essayFormStyle = {display: "none"}}
-    //if (activePage !== 0){openingStyle = {display: "none"}}
+    if (activePage !== 6){feedback= {display: "none"}}
+    if (activePage !== 5){loadingScreen2= {display: "none"}}
+    if (activePage !== 4 && activePage !== 5 && activePage !== 6){essay= {display: "none"}}
+    if (activePage !== 3){loadingScreen= {display: "none"}}
+    if (activePage !== 2){examplesStyle = {display: "none"}}
+    if (activePage !== 1){essayFormStyle = {display: "none"}}
+    if (activePage !== 0){openingStyle = {display: "none"}}
 
 
 function Opening() {
@@ -122,7 +130,7 @@ function EssayForm() {
               2020 - VATE - ‘Technology, major societal events, and environmental issues all enrich our language use in many ways.’ To what extent is this true in contemporary Australian society?
             </option>
           </select>
-          <label for="ownEssayPrompt">Your own essay prompt</label>
+          <label htmlFor="ownEssayPrompt">Your own essay prompt</label>
           <input id="ownEssayPrompt"></input>
         </form>
         <button>Generate essay</button>
@@ -160,22 +168,73 @@ function Examples() {
     <div style={examplesStyle} id="examples" className="container">
         <h2>Enter contemporary examples you would like the essay to contain</h2>
         <form id="exampleForm">
-          <label for="example1">Example 1: </label>
+          <label htmlFor="example1">Example 1: </label>
           <input value={formData.example1} id="example1" name="example1" onChange={handleChange}></input>
-          <label for="example2">Example 2: </label>
+          <label htmlFor="example2">Example 2: </label>
           <input value={formData.example2} id="example2" name="example2"onChange={handleChange}></input>
-          <label for="example3">Example 3: </label>
+          <label htmlFor="example3">Example 3: </label>
           <input value={formData.example3} id="example3" name="example3"onChange={handleChange}></input>
-          <label for="example4">Example 4: </label>
+          <label htmlFor="example4">Example 4: </label>
           <input value={formData.example4} id="example4" name="example4"onChange={handleChange}></input>
-          <label for="example5">Example 5: </label>
+          <label htmlFor="example5">Example 5: </label>
           <input value={formData.example5} id="example5" name="example5"onChange={handleChange}></input>
-          <label for="example6">Example 6: </label>
+          <label htmlFor="example6">Example 6: </label>
           <input value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
         <button type="button" onClick={submitExamples}>Generate essay</button>
         <button>Back</button>
     </div>)
+
+};
+
+function LoadingScreen() {
+
+  return (
+  
+  <div style={loadingScreen} id="loadingScreen" className="container">
+      <h2>Generating essay...</h2>
+      <div id="loadingWheel"></div>
+      </div>)
+
+};
+
+function LoadingScreen2() {
+
+  return (
+  
+  <div style={loadingScreen2} id="loadingScreen2" className="container">
+      <h2>Generating essay...</h2>
+      <div id="loadingWheel"></div>
+      </div>)
+
+};
+
+function Essay() {
+
+  return (
+  
+  <div style={essay} id="essay" className="container">
+      <h2>Your Essay</h2>
+      <h3>Essay Topic here</h3>
+      <p>essay here</p>
+      <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
+      <button type="button">Grade essay</button>
+      <button>Back</button>
+      </div>)
+};
+
+function Feedback() {
+
+  return (
+  
+  <div style={feedback} id="feedback" className="container">
+      <h2>Feedback</h2>
+      <h3>Grade here</h3>
+      <p>Feedback here</p>
+      <h4>Thank you for using the EL essay generator</h4>
+      <button type="button">Create a new essay</button>
+      <button>Back</button>
+      </div>)
 
 };
 
@@ -185,6 +244,10 @@ return (<>
 <Opening/>
 <EssayForm/>
 <Examples/>
+<LoadingScreen/>
+<Essay/>
+<LoadingScreen2/>
+<Feedback/>
 </>
 
 )

@@ -7,7 +7,7 @@ function App() {
   const [activePage, setActivePage] = useState(0);
 
   function generateEssay(formData){
-    console.log(formData)
+    console.log(formData.example1)
 
   }
 
