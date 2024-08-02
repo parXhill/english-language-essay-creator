@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Components.css'
 
-export default function Components({setExamplesData, essayResponse, requestEssay, activePage, setActivePage, essayPrompt, setEssayPrompt}){
+export default function Components({feedbackResponse, setExamplesData, essayResponse, activePage, setActivePage, essayPrompt, setEssayPrompt}){
 
     let essayFormStyle;
     let openingStyle;
@@ -195,17 +195,6 @@ function LoadingScreen() {
 
 };
 
-function LoadingScreen2() {
-
-  return (
-  
-  <div style={loadingScreen2} id="loadingScreen2" className="container">
-      <h2>Generating essay...</h2>
-      <div id="loadingWheel"></div>
-      </div>)
-
-};
-
 function Essay() {
 
   const splitEssay = essayResponse.split(/\*(Introduction|BodyParagraph1|BodyParagraph2|BodyParagraph3|Conclusion)\*/);
@@ -241,10 +230,22 @@ function Essay() {
       <h4>Conclusion</h4>
       <p>{conclusionContent}</p>
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
-      <button type="button">Grade essay</button>
+      <button type="button" onClick={() => setActivePage(5)}>Grade essay</button>
       <button>Back</button>
       </div>)
 };
+
+function LoadingScreen2() {
+
+  return (
+  
+  <div style={loadingScreen2} id="loadingScreen2" className="container">
+      <h2>Generating essay...</h2>
+      <div id="loadingWheel"></div>
+      </div>)
+
+};
+
 
 function Feedback() {
 
@@ -253,9 +254,9 @@ function Feedback() {
   <div style={feedback} id="feedback" className="container">
       <h2>Feedback</h2>
       <h3>Grade here</h3>
-      <p>Feedback here</p>
+      <p>{feedbackResponse}</p>
       <h4>Thank you for using the EL essay generator</h4>
-      <button type="button">Create a new essay</button>
+      <button type="button" onClick={() => setActivePage(0)}>Create a new essay</button>
       <button>Back</button>
       </div>)
 
