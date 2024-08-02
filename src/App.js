@@ -5,8 +5,7 @@ import React, {useState, useEffect} from 'react';
 
 function App() {
 
- 
- let stringResponse;
+
  const openAIAPIKey = process.env.REACT_APP_OPENAI_API;
 
   const [activePage, setActivePage] = useState(0);
@@ -16,6 +15,12 @@ function App() {
   const [essayResponse, setEssayResponse] = useState("");
 
   useEffect(() => {
+    if (Object.keys(examplesData).length > 0) {
+        setActivePage(3);
+    }
+}, [examplesData]); 
+
+  useEffect(() => {
     if (activePage === 3) {
       requestEssay();
     }
@@ -23,8 +28,12 @@ function App() {
   
   function requestEssay() {
     console.log("test this")
+    console.log(gptRequestString);
   
   async function getResponse(){
+
+          console.log("test this")
+          console.log(gptRequestString);
 
           const userInput = gptRequestString;
           const response = await fetch('https://api.openai.com/v1/chat/completions', {
@@ -42,7 +51,7 @@ function App() {
   
           if (response.ok) {
               const data = await response.json();
-              stringResponse = data.choices[0].message.content;
+              const stringResponse = data.choices[0].message.content;
               setEssayResponse(stringResponse);
               setActivePage(4);
               //setTimeout(()=> {outputBox.value = stringResponse;}, 3500)
@@ -55,14 +64,14 @@ function App() {
   getResponse();
   };
 
-  function getEssayExamples(formData){
-    setExamplesData(formData);
-  }
+ // function getEssayExamples(formData){
+  //  setExamplesData(formData);
+  //}
 
   return (
     <div className="App">
        <button onClick={()=>setActivePage(activePage + 1)}>Click</button>
-        <Components essayResponse={essayResponse} requestEssay={requestEssay} essayPrompt={essayPrompt} setEssayPrompt={setEssayPrompt} getEssayExamples={getEssayExamples} activePage={activePage} setActivePage={setActivePage}/>
+        <Components setExamplesData={setExamplesData} essayResponse={essayResponse} requestEssay={requestEssay} essayPrompt={essayPrompt} setEssayPrompt={setEssayPrompt} activePage={activePage} setActivePage={setActivePage}/>
         <PromptTemplate examplesData={examplesData} essayPrompt={essayPrompt} gptRequestString={gptRequestString} setGPTRequestString={setGPTRequestString}/>
     </div>
   );
