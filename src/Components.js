@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './Components.css'
 
-export default function Components({activePage, setActivePage, generateEssay}){
+export default function Components({activePage, setActivePage, getEssayExamples, essayPrompt, setEssayPrompt}){
 
     let essayFormStyle;
     let openingStyle;
@@ -33,17 +33,14 @@ function Opening() {
 
 function EssayForm() {
 
-    let selectedOption;
-
-    function handleChange(){};
 
     return (
     
     <div style={essayFormStyle} id="essayForm" className="container">
-        <h2>Select or enter an essay prompt</h2>
-        <form>
+        <h2>Select an essay prompt</h2>
+        <form id="essayPromptForm">
         <label htmlFor="essayPrompt">Select an essay prompt:</label>
-        <select id="essayPrompt" value={selectedOption} onChange={handleChange}>
+        <select id="essayPrompt" value={essayPrompt} onChange={(e) => setEssayPrompt(e.target.value)}>
             <option value="" disabled>Year - Source - Question</option>
             <option value="2021-vcaa-1">
               2021 - VCAA - ‘It’s just language. Who cares if it’s formal or informal, standard or non-standard?’ To what extent is this true in contemporary Australian society?
@@ -130,10 +127,8 @@ function EssayForm() {
               2020 - VATE - ‘Technology, major societal events, and environmental issues all enrich our language use in many ways.’ To what extent is this true in contemporary Australian society?
             </option>
           </select>
-          <label htmlFor="ownEssayPrompt">Your own essay prompt</label>
-          <input id="ownEssayPrompt"></input>
         </form>
-        <button>Generate essay</button>
+        <button>Next</button>
     </div>)
 
 };
@@ -159,7 +154,7 @@ function Examples() {
 
     const submitExamples = (event) => {
         event.preventDefault();
-        generateEssay(formData);
+        getEssayExamples(formData);
       };
     
 
