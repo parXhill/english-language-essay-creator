@@ -171,6 +171,7 @@ function Examples() {
           ...prevData,
           [name]: value,
         }));
+        console.log(essayPrompt)
       };
 
     const submitExamples = (event) => {
@@ -296,9 +297,9 @@ function Feedback() {
       <h2>Feedback</h2>
       <h3>Grade</h3>
       <h1>{gradeContent}</h1>
-      <h3>What went well</h3>
+      <h3>Positive aspects</h3>
       <p>{positiveFeedbackContent}</p>
-      <h3>Improvement tips</h3>
+      <h3>Areas for improvement</h3>
       <p>{improvementTipsContent}</p>
       <h4>Thank you for using the EL essay generator</h4>
       <div className="buttonContainer">

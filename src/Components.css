@@ -14,8 +14,23 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    transform: translateX(-100%);
+    animation: slideInFromLeft 1s forwards;
   
   }
+
+  @keyframes slideInFromLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
 
   .buttonContainer {
     display: flex;
@@ -44,14 +59,17 @@
     padding: 10px; /* Add some padding for better appearance */
   }
   
+  #essayForm input{
+    width: 90%;
+  }
   #opening h2{
-    margin-top: 8vw;
+    margin-top: 9vh;
+    text-align: center;
   }
 
   #opening button{
-    margin-bottom: 5vw;
-    height: 10vh;
-    width: 15vw;
+    margin-bottom: 12vh;
+    text-align: center;
   }
 
   option{
@@ -110,7 +128,7 @@
       outline: none;
     }
 
-    input {
+    input, select {
       background-color: #ffffff; /* White background */
       color: #333333; /* Dark gray text color */
       border: 1px solid #cccccc; /* Light gray border */
@@ -122,13 +140,13 @@
     }
     
     /* Box shadow on hover */
-    input:hover {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light box shadow on hover */
+    input, select :hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); /* Light box shadow on hover */
       border-color: #aaaaaa; /* Slightly darker border on hover */
     }
     
     /* Optional: Active state for better visual feedback */
-    input:active {
+    input, select:active {
       border-color: #888888; /* Darker border on active */
     }
 
