@@ -33,11 +33,26 @@ function Opening() {
 
 function EssayForm() {
 
+  const [promptSelector, setPromptSelector] = useState(true);
+  const [promptInput, setPromptInput] = useState("");
+
+  function handlePrompt(e){
+
+    if (!promptSelector) {
+      setEssayPrompt(promptInput);
+      setActivePage(2);
+    } else {
+      setActivePage(2);
+    }
+
+
+  }
 
     return (
     
     <div style={essayFormStyle} id="essayForm" className="container">
-        <h2>Select an essay prompt</h2>
+        <h2>Select an essay prompt or write your own</h2>
+        {promptSelector ? (<>
         <form id="essayPromptForm">
         <label htmlFor="essayPrompt">Select an essay prompt:</label>
         <select id="essayPrompt" value={essayPrompt} onChange={(e) => setEssayPrompt(e.target.value)}>
@@ -128,8 +143,13 @@ function EssayForm() {
             </option>
           </select>
         </form>
-        <button onClick={() => setActivePage(2)}>Next</button>
+        <button id="writePromptButton" onClick={ ()=> setPromptSelector(false)}>Write my own prompt</button></> ) : (<>
+        <input value={promptInput} onChange={(e) => setPromptInput(e.target.value)}placeholder="Write your own prompt here..."></input>
+        <button id="selectPromptButton" onClick={()=> setPromptSelector(true)}>Select a prompt</button></> )}
+        <div className="buttonContainer">
         <button onClick={() => setActivePage(0)}>Back</button>
+        <button onClick={handlePrompt}>Next</button>
+        </div>
     </div>)
 
 };
@@ -179,8 +199,10 @@ function Examples() {
           <label htmlFor="example6">Example 6: </label>
           <input value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
-        <button type="button" onClick={submitExamples}>Generate essay</button>
+        <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
+        <button type="button" onClick={submitExamples}>Generate essay</button>
+        </div>
     </div>)
 
 };
@@ -190,8 +212,9 @@ function LoadingScreen() {
   return (
   
   <div style={loadingScreen} id="loadingScreen" className="container">
-      <h2>Generating essay...</h2>
+      <h2>Please wait, this can take up to a minute.</h2>
       <div id="loadingWheel"></div>
+      <h2>Generating essay...</h2>
       </div>)
 
 };
@@ -231,8 +254,10 @@ function Essay() {
       <h4>Conclusion</h4>
       <p>{conclusionContent}</p>
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
-      <button type="button" onClick={() => setActivePage(5)}>Grade essay</button>
+      <div className="buttonContainer">
       <button onClick={() => setActivePage(2)}>Back</button>
+      <button type="button" onClick={() => setActivePage(5)}>Grade essay</button>
+      </div>
       </div>)
 };
 
@@ -276,8 +301,10 @@ function Feedback() {
       <h3>Improvement tips</h3>
       <p>{improvementTipsContent}</p>
       <h4>Thank you for using the EL essay generator</h4>
-      <button type="button" onClick={() => setActivePage(0)}>Create a new essay</button>
+      <div className="buttonContainer">
       <button onClick={() => setActivePage(4)}>Back</button>
+      <button type="button" onClick={() => setActivePage(0)}>Create a new essay</button>
+      </div>
       </div>)
 
 };

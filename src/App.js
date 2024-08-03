@@ -93,7 +93,6 @@ function App() {
 
   return (
     <div className="App">
-       <button onClick={()=>setActivePage(activePage + 1)}>Click</button>
         <Components feedbackResponse={feedbackResponse} setExamplesData={setExamplesData} essayResponse={essayResponse} essayPrompt={essayPrompt} setEssayPrompt={setEssayPrompt} activePage={activePage} setActivePage={setActivePage}/>
         <PromptTemplate examplesData={examplesData} essayPrompt={essayPrompt} gptRequestString={gptRequestString} setGPTRequestString={setGPTRequestString}/>
         <FeedbackTemplate essayResponse={essayResponse} setFeedbackRequestString={setFeedbackRequestString} />

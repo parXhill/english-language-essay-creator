@@ -13,7 +13,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
   
+  }
+
+  .buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  #exampleForm{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #exampleForm{
+    display: grid;
+    grid-template-columns: auto 1fr; /* Labels take auto width, inputs take remaining space */
+    gap: 10px 20px; /* Space between items */
+    width: 95%;
+    align-items: center; /* Center items vertically */
+    box-sizing: border-box; /* Include padding and border in width */
+    margin-bottom: 2vh;
   }
   
   #essayPrompt {
@@ -22,6 +44,16 @@
     padding: 10px; /* Add some padding for better appearance */
   }
   
+  #opening h2{
+    margin-top: 8vw;
+  }
+
+  #opening button{
+    margin-bottom: 5vw;
+    height: 10vh;
+    width: 15vw;
+  }
+
   option{
     text-overflow: ellipsis;
     width: 100%;
@@ -50,3 +82,59 @@
       100% { transform: rotate(360deg); }
     }
   
+  
+    button {
+      background-color: #008080; /* Teal blue background */
+      color: white; /* White text */
+      border: none; /* No border */
+      padding: 10px 20px; /* Padding for size */
+      border-radius: 5px; /* Rounded edges */
+      font-size: 16px; /* Font size */
+      cursor: pointer; /* Pointer cursor on hover */
+      transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    }
+    
+    /* Slightly lights up on hover */
+    button:hover {
+      box-shadow: 0 0 10px rgba(0, 128, 128, 0.5); /* Teal blue glow on hover */
+      background-color: #1f9d9d; /* Teal blue background */
+    }
+    
+    /* Turns a different color on activation (click) */
+    button:active {
+      background-color: #005f5f; /* Darker teal on activation */
+    }
+    
+    /* Optional: To remove default outline on focus */
+    button:focus {
+      outline: none;
+    }
+
+    input {
+      background-color: #ffffff; /* White background */
+      color: #333333; /* Dark gray text color */
+      border: 1px solid #cccccc; /* Light gray border */
+      padding: 10px; /* Padding for size */
+      border-radius: 5px; /* Rounded corners */
+      font-size: 16px; /* Font size */
+      transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+      outline: none; /* Remove default outline */
+    }
+    
+    /* Box shadow on hover */
+    input:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Light box shadow on hover */
+      border-color: #aaaaaa; /* Slightly darker border on hover */
+    }
+    
+    /* Optional: Active state for better visual feedback */
+    input:active {
+      border-color: #888888; /* Darker border on active */
+    }
+
+  
+    
+
+    
+  
+    
