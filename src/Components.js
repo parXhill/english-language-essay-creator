@@ -17,8 +17,11 @@ export default function Components({feedbackResponse, setExamplesData, essayResp
     if (activePage !== 3){loadingScreen= {display: "none"}}
     if (activePage !== 2){examplesStyle = {display: "none"}}
     if (activePage !== 1){essayFormStyle = {display: "none"}}
-    if (activePage !== 0){openingStyle = {display: "none"}}
+    if (activePage !== 0 ){openingStyle = {display: "none"}}
 
+    function slideOut(divId) {
+      document.getElementById(divId).classList.add('slide-out');
+  }
 
 function Opening() {
 
