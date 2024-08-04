@@ -155,6 +155,8 @@ function EssayForm() {
 };
 
 function Examples() {
+
+    const [toggleContentionForm, setToggleContentionForm] = useState(false);
   
     const [formData, setFormData] = useState({
         contention: '',
@@ -190,7 +192,10 @@ function Examples() {
     <div style={examplesStyle} id="examples" className="container">
 
       <h3>{essayPrompt}</h3>
-        
+
+      {toggleContentionForm === false ?
+
+      <div id='examplesFormDiv'>
         <h2>Enter contemporary examples you would like the essay to contain</h2>
         <form id="exampleForm">
           <label htmlFor="example1">Example 1: </label>
@@ -206,8 +211,12 @@ function Examples() {
           <label htmlFor="example6">Example 6: </label>
           <input placeholder="E.g. I sometimes code-switch between Spanish and English with my grandmother" value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
+      </div>
 
-        <h2>Enter an essay contention and the topic/theme of each paragraph</h2>
+      :
+
+      <div id='contentionFormDiv'>
+        <h2>Enter an essay contention and the topic/theme for each body paragraph</h2>
         <form id="contentionForm">
           <label htmlFor="contention">Contention: </label>
           <input placeholder="E.g. Language does have the power to change society" value={formData.contention} id="contention" name="contention" onChange={handleChange}></input>
@@ -218,11 +227,16 @@ function Examples() {
           <label htmlFor="theme3">Paragraph 3 Topic: </label>
           <input placeholder="E.g. Non-binary pronouns" value={formData.theme3} id="theme3" name="theme3" onChange={handleChange}></input>
         </form>
+      </div>
+
+        }
 
         <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
+        <button onClick={() => setToggleContentionForm(prev => !prev)} >Add an optional contention and paragraph themes</button>
         <button type="button" onClick={submitExamples}>Generate essay</button>
         </div>
+        
     </div>)
 
 };
