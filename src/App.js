@@ -1,6 +1,6 @@
 import './App.css';
 import Components from './Components.js'
-import PromptTemplate from './tempPromptTemplate.js';
+import PromptTemplate from './PromptTemplate.js';
 import FeedbackTemplate from './FeedbackTemplate.js';
 import React, {useState, useEffect} from 'react';
 
