@@ -31,6 +31,11 @@
     box-sizing: border-box; /* Include padding and border in width */
     margin-bottom: 4vh;
   }
+
+  #examples h3 {
+    font-style: italic;
+    text-align: center;
+  }
   
   #essayPrompt {
     width: 100%;
