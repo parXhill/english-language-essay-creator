@@ -1,6 +1,3 @@
-
-import React from 'react';
-
 export default function FeedbackTemplate({essayResponse, setFeedbackRequestString}){
 
 setFeedbackRequestString(`Grade the essay and give feedback based on the assessment criteria and course content:
