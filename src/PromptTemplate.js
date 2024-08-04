@@ -6,6 +6,9 @@ Based on the content given in the parenthesis below, you will write an essay in 
 You will be given guidelines on the structure of the essay.
 You will be given an essay prompt.
 You will be given examples to work into the body paragraphs. Elaborate on the examples to make them relevant and fit. 
+
+You MAY be given a contention to follow and themes/topics to base your paragraphs around. If these are provided, use them, if they are empty, create your own.
+
 Use the provided metalanguage words appropriately and naturally within the essay context whenever relevant. Provide actual examples of the language in use for each example given that illustrate the point being made.)
 
 Key Course Knowledge Outcomes and Skills:
@@ -49,6 +52,15 @@ Essay Prompt:
 
 ${essayPrompt}
 
+Contention:
+
+ ${examplesData.contention}(If blank, create your own)
+
+ Paragraph themes/topics:
+
+  Body paragraph 1:	${examplesData.theme1} (If blank, create your own)
+  Body paragraph 2:	${examplesData.theme2} (If blank, create your own)
+  Body paragraph 3:	${examplesData.theme3} (If blank, create your own)
 
 Examples to be used:
 

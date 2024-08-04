@@ -29,7 +29,7 @@
     width: 95%;
     align-items: center; /* Center items vertically */
     box-sizing: border-box; /* Include padding and border in width */
-    margin-bottom: 2vh;
+    margin-bottom: 4vh;
   }
   
   #essayPrompt {
