@@ -6,4 +6,9 @@
   min-height: 100vh;
   width: auto;
   background-color: #ffffff;
+  font-family: "Quicksand";
+}
+
+button, select, input, option {
+  font-family: "Quicksand";
 }

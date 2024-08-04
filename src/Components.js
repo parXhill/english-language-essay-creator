@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './Components.css'
-import { CSSTransition } from 'react-transition-group';
 
 
 export default function Components({feedbackResponse, setExamplesData, essayResponse, activePage, setActivePage, essayPrompt, setEssayPrompt}){
@@ -188,17 +187,17 @@ function Examples() {
         <h2>Enter contemporary examples you would like the essay to contain</h2>
         <form id="exampleForm">
           <label htmlFor="example1">Example 1: </label>
-          <input value={formData.example1} id="example1" name="example1" onChange={handleChange}></input>
+          <input placeholder="E.g. PC changes in Roald Dahl books" value={formData.example1} id="example1" name="example1" onChange={handleChange}></input>
           <label htmlFor="example2">Example 2: </label>
-          <input value={formData.example2} id="example2" name="example2"onChange={handleChange}></input>
+          <input placeholder="E.g. Traditional aboriginal names for cities used in Channel 10 weather report for NAIDOC week" value={formData.example2} id="example2" name="example2"onChange={handleChange}></input>
           <label htmlFor="example3">Example 3: </label>
-          <input value={formData.example3} id="example3" name="example3"onChange={handleChange}></input>
+          <input placeholder="E.g. Jargon such as 'antimatter' and 'inertia in VCE Physics class" value={formData.example3} id="example3" name="example3"onChange={handleChange}></input>
           <label htmlFor="example4">Example 4: </label>
-          <input value={formData.example4} id="example4" name="example4"onChange={handleChange}></input>
+          <input placeholder="E.g. Lydia Schiavello's posh accent in the Real Housewives of Melbourne" value={formData.example4} id="example4" name="example4"onChange={handleChange}></input>
           <label htmlFor="example5">Example 5: </label>
-          <input value={formData.example5} id="example5" name="example5"onChange={handleChange}></input>
+          <input placeholder="E.g. ABC show Bluey uses diminutives such as 'chippie' and 'tradie' " value={formData.example5} id="example5" name="example5"onChange={handleChange}></input>
           <label htmlFor="example6">Example 6: </label>
-          <input value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
+          <input placeholder="E.g. I sometimes code-switch between Spanish and English with my grandmother" value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
         <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
@@ -243,7 +242,7 @@ function Essay() {
   
   <div style={essay} id="essay" className="container">
       <h2>Your Essay</h2>
-      <h3>Essay Topic here</h3>
+      <h3>{essayPrompt}</h3>
       <h4>Introduction</h4>
       <p>{introductionContent}</p>
       <h4>Paragraph 1</h4>
