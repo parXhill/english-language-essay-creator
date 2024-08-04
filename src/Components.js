@@ -14,7 +14,7 @@ export default function Components({feedbackResponse, setExamplesData, essayResp
 
 if (activePage !== 6){feedback= {display: "none"}}
 if (activePage !== 5){loadingScreen2= {display: "none"}}
-if (activePage !== 4 && activePage !== 5 && activePage !== 6){essay= {display: "none"}}
+if (activePage !== 4 && activePage !== 5){essay= {display: "none"}}
 if (activePage !== 3){loadingScreen= {display: "none"}}
 if (activePage !== 2){examplesStyle = {display: "none"}}
 if (activePage !== 1){essayFormStyle = {display: "none"}}
@@ -301,6 +301,8 @@ function Feedback() {
       <p>{positiveFeedbackContent}</p>
       <h3>Areas for improvement</h3>
       <p>{improvementTipsContent}</p>
+      <h4>{essayPrompt}</h4>
+      <p>{essayResponse}</p>
       <h4>Thank you for using the EL essay generator</h4>
       <div className="buttonContainer">
       <button onClick={() => setActivePage(4)}>Back</button>
