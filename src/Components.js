@@ -157,12 +157,16 @@ function EssayForm() {
 function Examples() {
   
     const [formData, setFormData] = useState({
+        contention: '',
+        theme1: '',
+        theme2: '',
+        theme3: '',
         example1: '',
         example2: '',
         example3: '',
         example4: '',
         example5: '',
-        example6: '',
+        example6: ''
       });
 
     const handleChange = (event) => {
