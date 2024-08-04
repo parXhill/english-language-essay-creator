@@ -22,7 +22,7 @@
   }
 
 
-  #exampleForm{
+  #exampleForm, #contentionForm{
     display: grid;
     grid-template-columns: auto 1fr; /* Labels take auto width, inputs take remaining space */
     gap: 10px 20px; /* Space between items */
