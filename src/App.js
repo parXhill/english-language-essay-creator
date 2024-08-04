@@ -17,24 +17,6 @@ function App() {
   const [feedbackRequestString, setFeedbackRequestString] = useState("");
   const [feedbackResponse, setFeedbackResponse] = useState("");
 
-  useEffect(() => {
-    if (Object.keys(examplesData).length > 0) {
-        setActivePage(3);
-    }
-}, [examplesData]); 
-
-  useEffect(() => {
-    if (activePage === 3) {
-      gptRequest();
-    }
-  }, [activePage, gptRequest]);
- 
-  useEffect(() => {
-    if (activePage === 5) {
-      gptRequest();
-    }
-  }, [activePage, gptRequest]);
-  
   
   function sendDataToBackend(dataObject) {
     fetch('https://script.google.com/macros/s/AKfycbyw6pbMbMBuVrOLIxKiVdA_j8Efbxb-xoYyRLsBM7XPXlutCNGEXnz-4qalKmhi8-YvAw/exec', {
@@ -106,6 +88,23 @@ function App() {
     }
   }, [activePage, openAIAPIKey, examplesData, gptRequestString, feedbackRequestString]);
 
+  useEffect(() => {
+    if (Object.keys(examplesData).length > 0) {
+        setActivePage(3);
+    }
+}, [examplesData]); 
+
+  useEffect(() => {
+    if (activePage === 3) {
+      gptRequest();
+    }
+  }, [activePage, gptRequest]);
+ 
+  useEffect(() => {
+    if (activePage === 5) {
+      gptRequest();
+    }
+  }, [activePage, gptRequest]);
 
   return (
     <div className="App">
