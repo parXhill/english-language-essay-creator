@@ -27,13 +27,13 @@ function App() {
     if (activePage === 3) {
       gptRequest();
     }
-  }, [activePage]);
+  }, [activePage, gptRequest]);
  
   useEffect(() => {
     if (activePage === 5) {
       gptRequest();
     }
-  }, [activePage]);
+  }, [activePage, gptRequest]);
   
   
   function sendDataToBackend(dataObject) {
