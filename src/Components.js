@@ -233,7 +233,7 @@ function Examples() {
 
         <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
-        <button onClick={() => setToggleContentionForm(true)} >Optional: Add a contention and paragraph themes</button>
+        <button onClick={() => setOpenContentionForm(true)} >Optional: Add a contention and paragraph themes</button>
         <button type="button" onClick={submitExamples}>Generate essay</button>
         </div>
         
