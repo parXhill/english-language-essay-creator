@@ -24,7 +24,7 @@ Key Course Knowledge Outcomes and Skills:
 	13.	Code-switching as a means of demonstrating group membership and belonging.
 	14.	The relationship between social attitudes and language choices.
 Essay Structure:
-The essay consists of five paragraphs: an introduction, three body paragraphs, and a conclusion. It is 1000-1200 words long.
+The essay consists of five paragraphs: an introduction, three body paragraphs, and a conclusion. It is 900-1000 words long.
 Introduction Structure:
 	•	An unpacking of how the overall topic is relevant (two sentences).
 	•	A contention that responds to the essay prompt.

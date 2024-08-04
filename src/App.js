@@ -50,9 +50,9 @@ function App() {
           'Authorization': `Bearer ${openAIAPIKey}`
         },
         body: JSON.stringify({
-          model: 'gpt-3.5-turbo', 
+          model: 'gpt-4o', //'gpt-3.5-turbo', 
           messages: [{ role: 'user', content: userInput }],
-          max_tokens: 15
+          max_tokens: 1300
         })
       });
   
