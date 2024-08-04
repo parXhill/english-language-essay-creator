@@ -2,7 +2,7 @@ import './App.css';
 import Components from './Components.js'
 import PromptTemplate from './PromptTemplate.js';
 import FeedbackTemplate from './FeedbackTemplate.js';
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 
 function App() {
 
@@ -27,13 +27,13 @@ function App() {
     if (activePage === 3) {
       gptRequest();
     }
-  }, [activePage, gptRequest]);
+  }, [activePage]);
  
   useEffect(() => {
     if (activePage === 5) {
       gptRequest();
     }
-  }, [activePage, gptRequest]);
+  }, [activePage]);
   
   
   function sendDataToBackend(dataObject) {
@@ -59,63 +59,52 @@ function App() {
     });
   }
 
-  function gptRequest() {
-
+  const gptRequest = useCallback(() => {
+    async function getResponse(userInput) {
+      const response = await fetch('https://api.openai.com/v1/chat/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${openAIAPIKey}`
+        },
+        body: JSON.stringify({
+          model: 'gpt-3.5-turbo', 
+          messages: [{ role: 'user', content: userInput }],
+          max_tokens: 15
+        })
+      });
   
-  async function getResponse(userInput){
-
-          const response = await fetch('https://api.openai.com/v1/chat/completions', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${openAIAPIKey}`
-              },
-              body: JSON.stringify({
-                  model: 'gpt-3.5-turbo', // 'gpt-4o', 'gpt-3.5-turbo'
-                  messages: [{role: 'user', content: userInput}],
-                  max_tokens: 15
-              })
-          });
+      if (response.ok) {
+        const data = await response.json();
+        sendDataToBackend(examplesData);
+        sendDataToBackend(data);
   
-          if (response.ok) {
-              const data = await response.json();
-            
-              sendDataToBackend(examplesData);
-              sendDataToBackend(data);
-
-              const stringResponse = data.choices[0].message.content;
-
-              if (activePage === 3) {
-                setEssayResponse(stringResponse);
-                setActivePage(4);
-                console.log("EssayResponse", stringResponse);
-              }
-          
-              if (activePage === 5) {
-                setFeedbackResponse(stringResponse);
-                setActivePage(6);
-                console.log("FeedbackResponse", stringResponse);
-              }
-             
+        const stringResponse = data.choices[0].message.content;
   
-          } else {
-              console.log(`Error in getResponse: ${response.statusText}`);
-          }
-      };
-
+        if (activePage === 3) {
+          setEssayResponse(stringResponse);
+          setActivePage(4);
+          console.log("EssayResponse", stringResponse);
+        }
+  
+        if (activePage === 5) {
+          setFeedbackResponse(stringResponse);
+          setActivePage(6);
+          console.log("FeedbackResponse", stringResponse);
+        }
+      } else {
+        console.log(`Error in getResponse: ${response.statusText}`);
+      }
+    };
+  
     if (activePage === 3) {
       getResponse(gptRequestString);
-      //setEssayResponse(dummyResponse)
-      //setActivePage(4);
     }
-
+  
     if (activePage === 5) {
       getResponse(feedbackRequestString);
-      //setFeedbackResponse(dummyFeedback)
-      //setActivePage(6);
     }
-
-  };
+  }, [activePage, openAIAPIKey, examplesData, gptRequestString, feedbackRequestString]);
 
 
   return (
