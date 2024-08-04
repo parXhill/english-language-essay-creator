@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './Components.css'
+import { CSSTransition } from 'react-transition-group';
+
 
 export default function Components({feedbackResponse, setExamplesData, essayResponse, activePage, setActivePage, essayPrompt, setEssayPrompt}){
 
@@ -23,7 +25,7 @@ if (activePage !== 0 ){openingStyle = {display: "none"}}
 
     return (
     
-    <div style={openingStyle} id="opening" className="container">
+      <div style={openingStyle} id="opening" className="container">
         <h2>Click here to create an English Language Essay</h2>
         <button onClick={() => setActivePage(1)}>Start</button>
         </div>)
@@ -265,8 +267,9 @@ function LoadingScreen2() {
   return (
   
   <div style={loadingScreen2} id="loadingScreen2" className="container">
-      <h2>Generating essay...</h2>
+      <h2>Please wait, this can take up to a minute.</h2>
       <div id="loadingWheel"></div>
+      <h2>Generating feedback...</h2>
       </div>)
 
 };
@@ -315,9 +318,10 @@ return (<>
 <EssayForm/>
 <Examples/>
 <LoadingScreen/>
+{activePage === 5 ? <LoadingScreen2/> : null}
+{activePage === 6 ? <Feedback/> : null}
 <Essay/>
-<LoadingScreen2/>
-<Feedback/>
+
 </>
 
 )

@@ -15,6 +15,25 @@
   justify-content: space-between;
 }
 
+.slide {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: transform 300ms, opacity 300ms;
+}
+.slide-exit {
+  transform: translateX(0);
+  opacity: 1;
+}
+.slide-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 300ms, opacity 300ms;
+}
+
 
   .buttonContainer {
     display: flex;
@@ -134,9 +153,6 @@
       border-color: #888888; /* Darker border on active */
     }
 
-  
-    
 
-    
   
     
