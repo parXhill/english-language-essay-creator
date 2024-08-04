@@ -188,6 +188,9 @@ function Examples() {
     return (
     
     <div style={examplesStyle} id="examples" className="container">
+
+      <h3>{essayPrompt}</h3>
+        
         <h2>Enter contemporary examples you would like the essay to contain</h2>
         <form id="exampleForm">
           <label htmlFor="example1">Example 1: </label>
@@ -203,6 +206,19 @@ function Examples() {
           <label htmlFor="example6">Example 6: </label>
           <input placeholder="E.g. I sometimes code-switch between Spanish and English with my grandmother" value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
         </form>
+
+        <h2>Enter an essay contention and the topic/theme of each paragraph</h2>
+        <form id="contentionForm">
+          <label htmlFor="contention">Contention: </label>
+          <input placeholder="E.g. Language does have the power to change society" value={formData.contention} id="contention" name="contention" onChange={handleChange}></input>
+          <label htmlFor="theme1">Paragraph 1 Topic: </label>
+          <input placeholder="E.g. Changing offensive/outdated terms" value={formData.theme1} id="theme1" name="theme1" onChange={handleChange}></input>
+          <label htmlFor="theme2">Paragraph 2 Topic: </label>
+          <input placeholder="E.g. Aboriginal English and migrant ethnolects" value={formData.theme2} id="theme2" name="theme2" onChange={handleChange}></input>
+          <label htmlFor="theme3">Paragraph 3 Topic: </label>
+          <input placeholder="E.g. Non-binary pronouns" value={formData.theme3} id="theme3" name="theme3" onChange={handleChange}></input>
+        </form>
+
         <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
         <button type="button" onClick={submitExamples}>Generate essay</button>
