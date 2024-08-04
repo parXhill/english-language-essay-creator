@@ -11,19 +11,15 @@ export default function Components({feedbackResponse, setExamplesData, essayResp
     let essay;
     let feedback;
 
-    if (activePage !== 6){feedback= {display: "none"}}
-    if (activePage !== 5){loadingScreen2= {display: "none"}}
-    if (activePage !== 4 && activePage !== 5 && activePage !== 6){essay= {display: "none"}}
-    if (activePage !== 3){loadingScreen= {display: "none"}}
-    if (activePage !== 2){examplesStyle = {display: "none"}}
-    if (activePage !== 1){essayFormStyle = {display: "none"}}
-    if (activePage !== 0 ){openingStyle = {display: "none"}}
+if (activePage !== 6){feedback= {display: "none"}}
+if (activePage !== 5){loadingScreen2= {display: "none"}}
+if (activePage !== 4 && activePage !== 5 && activePage !== 6){essay= {display: "none"}}
+if (activePage !== 3){loadingScreen= {display: "none"}}
+if (activePage !== 2){examplesStyle = {display: "none"}}
+if (activePage !== 1){essayFormStyle = {display: "none"}}
+if (activePage !== 0 ){openingStyle = {display: "none"}}
 
-    function slideOut(divId) {
-      document.getElementById(divId).classList.add('slide-out');
-  }
-
-function Opening() {
+  function Opening() {
 
     return (
     
@@ -174,7 +170,6 @@ function Examples() {
           ...prevData,
           [name]: value,
         }));
-        console.log(essayPrompt)
       };
 
     const submitExamples = (event) => {

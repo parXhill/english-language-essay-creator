@@ -1,50 +1,19 @@
-
 .container {
-    background-color: rgba(57, 173, 197, 0.727);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Adjust shadow */
-    padding: 20px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    width: 66.66%;
-    height: auto;
-    margin-top: 15%;
-    margin-bottom: 5%;
-    min-height: 50vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transform: translateX(-100%);
-    animation: slideInFromLeft 1s forwards;
-  
-  }
-
-  @keyframes slideInFromLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-100%);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  background-color: rgba(57, 173, 197, 0.727);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8); /* Adjust shadow */
+  padding: 20px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  width: 66.66%;
+  height: auto;
+  margin-top: 15%;
+  margin-bottom: 5%;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
-
-@keyframes slideOutToRight {
-  0% {
-      opacity: 1;
-      transform: translateX(0);
-  }
-  100% {
-      opacity: 0;
-      transform: translateX(100%);
-  }
-}
-
-.slide-out {
-  animation: slideOutToRight 1s forwards;
-}
-
 
 
   .buttonContainer {

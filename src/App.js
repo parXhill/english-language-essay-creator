@@ -35,9 +35,32 @@ function App() {
     }
   }, [activePage]);
   
-  function gptRequest() {
   
-    console.log(gptRequestString);
+  function sendDataToBackend(dataObject) {
+    fetch('https://script.google.com/macros/s/AKfycbyw6pbMbMBuVrOLIxKiVdA_j8Efbxb-xoYyRLsBM7XPXlutCNGEXnz-4qalKmhi8-YvAw/exec', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain'
+      },
+      body: JSON.stringify(dataObject),
+      redirect: 'follow'
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok ' + response.statusText);
+      }
+      return response.text();
+    })
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
+  }
+
+  function gptRequest() {
+
   
   async function getResponse(userInput){
 
@@ -48,14 +71,18 @@ function App() {
                   'Authorization': `Bearer ${openAIAPIKey}`
               },
               body: JSON.stringify({
-                  model: 'gpt-4o',  //gpt-3.5-turbo
+                  model: 'gpt-3.5-turbo',  //'gpt-4o'
                   messages: [{role: 'user', content: userInput}],
-                  //max_tokens: 20
+                  max_tokens: 20
               })
           });
   
           if (response.ok) {
               const data = await response.json();
+            
+              sendDataToBackend(examplesData);
+              sendDataToBackend(data);
+
               const stringResponse = data.choices[0].message.content;
 
               if (activePage === 3) {
@@ -77,15 +104,15 @@ function App() {
       };
 
     if (activePage === 3) {
-      //getResponse(gptRequestString);
-      setEssayResponse(dummyResponse)
-      setActivePage(4);
+      getResponse(gptRequestString);
+      //setEssayResponse(dummyResponse)
+      //setActivePage(4);
     }
 
     if (activePage === 5) {
-      //getResponse(feedbackRequestString);
-      setFeedbackResponse(dummyFeedback)
-      setActivePage(6);
+      getResponse(feedbackRequestString);
+      //setFeedbackResponse(dummyFeedback)
+      //setActivePage(6);
     }
 
   };
