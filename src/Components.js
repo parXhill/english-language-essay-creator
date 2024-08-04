@@ -156,7 +156,7 @@ function EssayForm() {
 
 function Examples() {
 
-    const [toggleContentionForm, setToggleContentionForm] = useState(false);
+    const [openContentionForm, setOpenContentionForm] = useState(false);
   
     const [formData, setFormData] = useState({
         contention: '',
@@ -193,8 +193,6 @@ function Examples() {
 
       <h3>{essayPrompt}</h3>
 
-      {toggleContentionForm === false ?
-
       <div id='examplesFormDiv'>
         <h2>Enter contemporary examples you would like the essay to contain</h2>
         <form id="exampleForm">
@@ -213,7 +211,7 @@ function Examples() {
         </form>
       </div>
 
-      :
+      {openContentionForm === true ? 
 
       <div id='contentionFormDiv'>
         <h2>Enter an essay contention and the topic/theme for each body paragraph</h2>
@@ -229,11 +227,13 @@ function Examples() {
         </form>
       </div>
 
-        }
+      : null}
+
+        
 
         <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
-        <button onClick={() => setToggleContentionForm(prev => !prev)} >Add an optional contention and paragraph themes</button>
+        <button onClick={() => setToggleContentionForm(true)} >Optional: Add a contention and paragraph themes</button>
         <button type="button" onClick={submitExamples}>Generate essay</button>
         </div>
         
