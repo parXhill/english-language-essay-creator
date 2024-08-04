@@ -221,9 +221,9 @@ Format your response as:
 
 “Grade: (insert number grade here)
 
-Positive feedback: (insert positive feedback here, max 300 words)
+Positive feedback: (insert positive feedback here, max 150 words)
 
-Improvement tips: (insert tips to improve here, max 300 words)”
+Improvement tips: (insert tips to improve here, max 200 words)”
 `)
 
 }
