@@ -52,7 +52,7 @@ function App() {
         body: JSON.stringify({
           model: 'gpt-4o', //'gpt-3.5-turbo', 
           messages: [{ role: 'user', content: userInput }],
-          max_tokens: 1300
+          max_tokens: 1200
         })
       });
   
