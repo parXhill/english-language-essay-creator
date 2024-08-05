@@ -35,6 +35,11 @@
   #examples h3 {
     text-align: center;
   }
+
+  #discordButton{
+    color: lime;
+    font-weight: bold;
+  }
   
   #essayPrompt {
     width: 100%;

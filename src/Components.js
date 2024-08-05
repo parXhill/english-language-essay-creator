@@ -271,7 +271,7 @@ function Essay() {
   const bodyParagraph3Content = getSectionContent("BodyParagraph3");
   const conclusionContent = getSectionContent("Conclusion");
 
-  const discordPostEssay = `${introductionContent}\n${bodyParagraph1Content}\n${bodyParagraph2Content}\n${bodyParagraph3Content}\n${conclusionContent}`;
+  //const discordPostEssay = `${introductionContent}\n${bodyParagraph1Content}\n${bodyParagraph2Content}\n${bodyParagraph3Content}\n${conclusionContent}`;
 
   function postToDiscord() {
     const webhookURL = 'https://discord.com/api/webhooks/1269816365628391485/X4QP_AiCftK-eACWlALc_0lN029xFglfmg6Ra4QXHGsgnmOK7OcZ0v57np7dFYLGea7J';
