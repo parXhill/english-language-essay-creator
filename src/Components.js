@@ -213,8 +213,6 @@ function Examples() {
           <label htmlFor="example6">Example 6: </label>
           <input placeholder="E.g. I sometimes code-switch between Spanish and English with my grandmother" value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
 
-        //Optional example inputs to appear
-
         {addExtraExamples === 1 ? 
         <input value={formData.example7} id="example7" name="example7" onChange={handleChange}></input> : null}
 
@@ -228,7 +226,7 @@ function Examples() {
 
         {addExtraExamples >= 3 ?   <button onClick={(e) => {e.preventDefault(); setAddExtraExamples(prev => prev + 1)}}>+</button>
         : null}
-        
+
         </form> 
       </div>
 
