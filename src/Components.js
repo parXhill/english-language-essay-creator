@@ -302,8 +302,8 @@ function postAllToDiscord() {
   postToDiscord(essayPrompt);
   postToDiscord(introductionContent);
   postToDiscord(bodyParagraph1Content);
-  postToDiscord(bodyParagraph1Content);
-  postToDiscord(bodyParagraph1Content);
+  postToDiscord(bodyParagraph2Content);
+  postToDiscord(bodyParagraph3Content);
   postToDiscord(conclusionContent);
 
 }
