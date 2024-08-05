@@ -157,6 +157,7 @@ function EssayForm() {
 function Examples() {
 
     const [openContentionForm, setOpenContentionForm] = useState(false);
+    const [addExtraExamples, setAddExtraExamples] = useState(0);
   
     const [formData, setFormData] = useState({
         contention: '',
@@ -168,7 +169,10 @@ function Examples() {
         example3: '',
         example4: '',
         example5: '',
-        example6: ''
+        example6: '',
+        example7: '',
+        example8: '',
+        example9: ''
       });
 
     const handleChange = (event) => {
@@ -208,7 +212,24 @@ function Examples() {
           <input placeholder="E.g. ABC show Bluey uses diminutives such as 'chippie' and 'tradie' " value={formData.example5} id="example5" name="example5"onChange={handleChange}></input>
           <label htmlFor="example6">Example 6: </label>
           <input placeholder="E.g. I sometimes code-switch between Spanish and English with my grandmother" value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
-        </form>
+
+        //Optional example inputs to appear
+
+        {addExtraExamples === 1 ? 
+        <input value={formData.example7} id="example7" name="example7" onChange={handleChange}></input> : null}
+
+        {addExtraExamples === 2 ? 
+        <input value={formData.example8} id="example8" name="example8" onChange={handleChange}></input> : null}
+
+        {addExtraExamples === 3 ? 
+        <input value={formData.example9} id="example9" name="example9" onChange={handleChange}></input> : null}
+
+
+
+        {addExtraExamples >= 3 ?   <button onClick={(e) => {e.preventDefault(); setAddExtraExamples(prev => prev + 1)}}>+</button>
+        : null}
+        
+        </form> 
       </div>
 
       {openContentionForm === true ? 
