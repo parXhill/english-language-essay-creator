@@ -213,19 +213,26 @@ function Examples() {
           <label htmlFor="example6">Example 6: </label>
           <input placeholder="E.g. I sometimes code-switch between Spanish and English with my grandmother" value={formData.example6} id="example6" name="example6"onChange={handleChange}></input>
 
-        {addExtraExamples === 1 ? 
-        <input value={formData.example7} id="example7" name="example7" onChange={handleChange}></input> : null}
+        {addExtraExamples >= 1 ? 
+        <>
+        <label>Example 7:</label>
+        <input value={formData.example7} id="example7" name="example7" onChange={handleChange}></input></> : null}
 
-        {addExtraExamples === 2 ? 
-        <input value={formData.example8} id="example8" name="example8" onChange={handleChange}></input> : null}
+        {addExtraExamples >= 2 ? 
+        <>
+        <label>Example 8:</label>
+        <input value={formData.example8} id="example8" name="example8" onChange={handleChange}></input></> : null}
 
-        {addExtraExamples === 3 ? 
-        <input value={formData.example9} id="example9" name="example9" onChange={handleChange}></input> : null}
-
-
+        {addExtraExamples >= 3 ? 
+        <>
+        <label>Example 9:</label>
+        <input value={formData.example9} id="example9" name="example9" onChange={handleChange}></input></> : null}
 
         {addExtraExamples >= 3 ? null :  <button onClick={(e) => {e.preventDefault(); setAddExtraExamples(prev => prev + 1)}}>+</button>
         }
+
+
+
 
         </form> 
       </div>
