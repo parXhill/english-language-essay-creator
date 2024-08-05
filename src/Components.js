@@ -270,12 +270,11 @@ function Essay() {
   const bodyParagraph2Content = getSectionContent("BodyParagraph2");
   const bodyParagraph3Content = getSectionContent("BodyParagraph3");
   const conclusionContent = getSectionContent("Conclusion");
-
-  function postToDiscord(section) {
+  function postToDiscord(content) {
     const webhookURL = 'https://discord.com/api/webhooks/1269816365628391485/X4QP_AiCftK-eACWlALc_0lN029xFglfmg6Ra4QXHGsgnmOK7OcZ0v57np7dFYLGea7J';
 
     const message = {
-        content: section
+        content: content
     };
 
     fetch(webhookURL, {
@@ -287,27 +286,39 @@ function Essay() {
     })
     .then(response => {
         if (response.ok) {
-            //alert('Message posted to Discord successfully!');
+            console.log('Message posted to Discord successfully!');
         } else {
-            //alert('Failed to post message to Discord.');
+            response.json().then(data => {
+                console.error('Error:', data);
+                alert(`Failed to post message to Discord: ${data.message}`);
+            }).catch(err => {
+                console.error('Failed to parse error response:', err);
+                alert('Failed to post message to Discord and failed to parse error response.');
+            });
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        //alert('An error occurred while posting to Discord.');
+        alert('An error occurred while posting to Discord.');
     });
 }
 
 function postAllToDiscord() {
-  postToDiscord(essayPrompt);
-  postToDiscord(introductionContent);
-  postToDiscord(bodyParagraph1Content);
-  postToDiscord(bodyParagraph2Content);
-  postToDiscord(bodyParagraph3Content);
-  postToDiscord(conclusionContent);
+    const messages = [
+        essayPrompt,
+        introductionContent,
+        bodyParagraph1Content,
+        bodyParagraph2Content,
+        bodyParagraph3Content,
+        conclusionContent
+    ];
 
+    messages.forEach((message, index) => {
+        setTimeout(() => {
+            postToDiscord(message);
+        }, index * 500); // 0.5 second (500 milliseconds) intervals
+    });
 }
-
   
   return (
   
