@@ -298,8 +298,6 @@ function Essay() {
     });
 }
 
-// Example usage: Attach this function to a button click event
-document.getElementById('discordButton').addEventListener('click', postToDiscord);
 
 
   
@@ -321,7 +319,7 @@ document.getElementById('discordButton').addEventListener('click', postToDiscord
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
       <div className="buttonContainer">
       <button onClick={() => setActivePage(2)}>Back</button>
-      <button id='discordButton'>Post this essay to the EL Discord Server!</button>
+      <button id='discordButton' onClick={()=>postToDiscord()}>Post this essay to the EL Discord Server!</button>
       <button type="button" onClick={() => setActivePage(5)}>Grade essay</button>
       </div>
       </div>)
