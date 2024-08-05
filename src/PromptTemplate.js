@@ -228,5 +228,5 @@ Semantics
 	•	Functions of language: Referential, Emotive, Conative, Phatic, Metalinguistic, Poetic
 
 	Format your response like this *Introduction* introductioncontent *BodyParagraph1* bodyparagraph1content *BodyParagraph2* bodyparagraph2content *BodyParagraph3* bodyparagraph3content *Conclusion* conclusion
-	1900 characters per body paragraph section.
+	1600-1900 characters per body paragraph section.
 `)};
