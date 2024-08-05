@@ -310,7 +310,7 @@ function LoadingScreen2() {
 
 function Feedback() {
 
-  const splitFeedback = feedbackResponse.split(/(Grade:|Positive feedback:|Improvement tips:)/);
+  const splitFeedback = feedbackResponse.split(/\*(Grade:|Positive feedback:|Improvement tips:)\*/);
 
 
   const getSectionContent = (section) => {
