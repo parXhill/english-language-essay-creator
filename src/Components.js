@@ -271,13 +271,11 @@ function Essay() {
   const bodyParagraph3Content = getSectionContent("BodyParagraph3");
   const conclusionContent = getSectionContent("Conclusion");
 
-  const discordPostEssay = `${essayPrompt}\n${introductionContent}\n${bodyParagraph1Content}\n${bodyParagraph2Content}\n${bodyParagraph3Content}\n${conclusionContent}`;
-
-  function postToDiscord() {
+  function postToDiscord(section) {
     const webhookURL = 'https://discord.com/api/webhooks/1269816365628391485/X4QP_AiCftK-eACWlALc_0lN029xFglfmg6Ra4QXHGsgnmOK7OcZ0v57np7dFYLGea7J';
 
     const message = {
-        content: discordPostEssay
+        content: section
     };
 
     fetch(webhookURL, {
@@ -289,15 +287,25 @@ function Essay() {
     })
     .then(response => {
         if (response.ok) {
-            alert('Message posted to Discord successfully!');
+            //alert('Message posted to Discord successfully!');
         } else {
-            alert('Failed to post message to Discord.');
+            //alert('Failed to post message to Discord.');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('An error occurred while posting to Discord.');
+        //alert('An error occurred while posting to Discord.');
     });
+}
+
+function postAllToDiscord() {
+  postToDiscord(essayPrompt);
+  postToDiscord(introductionContent);
+  postToDiscord(bodyParagraph1Content);
+  postToDiscord(bodyParagraph1Content);
+  postToDiscord(bodyParagraph1Content);
+  postToDiscord(conclusionContent);
+
 }
 
   
@@ -319,7 +327,7 @@ function Essay() {
       <h4>If you would like feedback on the quality of this essay, and grading based on the VCAA expected qualities, please click here.</h4>
       <div className="buttonContainer">
       <button onClick={() => setActivePage(2)}>Back</button>
-      <button id='discordButton' onClick={()=>postToDiscord()}>Post this essay to the EL Discord Server!</button>
+      <button id='discordButton' onClick={()=>postAllToDiscord()}>Post this essay to the EL Discord Server!</button>
       <button type="button" onClick={() => setActivePage(5)}>Grade essay</button>
       </div>
       </div>)
