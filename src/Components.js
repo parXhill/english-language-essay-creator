@@ -224,8 +224,8 @@ function Examples() {
 
 
 
-        {addExtraExamples >= 3 ?   <button onClick={(e) => {e.preventDefault(); setAddExtraExamples(prev => prev + 1)}}>+</button>
-        : null}
+        {addExtraExamples >= 3 ? null :  <button onClick={(e) => {e.preventDefault(); setAddExtraExamples(prev => prev + 1)}}>+</button>
+        }
 
         </form> 
       </div>
