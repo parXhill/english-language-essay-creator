@@ -304,14 +304,14 @@ function Essay() {
 }
 
 function postAllToDiscord() {
-    const messages = [
-        essayPrompt,
-        introductionContent,
-        bodyParagraph1Content,
-        bodyParagraph2Content,
-        bodyParagraph3Content,
-        conclusionContent
-    ];
+  const messages = [
+    `Essay Prompt:\n${essayPrompt}`,
+    `Introduction:\n${introductionContent}`,
+    `Body Paragraph 1:\n${bodyParagraph1Content}`,
+    `Body Paragraph 2:\n${bodyParagraph2Content}`,
+    `Body Paragraph 3:\n${bodyParagraph3Content}`,
+    `Conclusion:\n${conclusionContent}`
+  ];
 
     messages.forEach((message, index) => {
         setTimeout(() => {
