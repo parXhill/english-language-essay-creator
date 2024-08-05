@@ -5,7 +5,7 @@ Based on the content given in the parenthesis below, you will write an essay in 
 (You will be given the key course knowledge outcomes and skills for this course.
 You will be given guidelines on the structure of the essay.
 You will be given an essay prompt.
-You will be given examples to work into the body paragraphs. Elaborate on the examples to make them relevant and fit. 
+You will be given examples to work into the body paragraphs. Elaborate on the examples to make them relevant and fit. If you do not know the specific details of the example, research it or look it up, so you can quote the specific language example referenced.
 
 - Write in an academic manner, yet do not be verbose or use overly flowery language. 
 - Write mainly in third person, but you may use first person when writing about anecdotal examples.
