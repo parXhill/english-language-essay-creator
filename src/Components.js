@@ -12,6 +12,7 @@ export default function Components({feedbackResponse, setExamplesData, essayResp
     let essay;
     let feedback;
 
+if (activePage !== 7){checkMyOwnStyle= {display: "none"}}
 if (activePage !== 6){feedback= {display: "none"}}
 if (activePage !== 5){loadingScreen2= {display: "none"}}
 if (activePage !== 4){essay= {display: "none"}}
@@ -148,6 +149,7 @@ function EssayForm() {
         <button id="selectPromptButton" onClick={()=> setPromptSelector(true)}>Select a prompt</button></> )}
         <div className="buttonContainer">
         <button onClick={() => setActivePage(0)}>Back</button>
+        <button onClick={()=> setActivePage(7)}>Check my Own</button>
         <button onClick={handlePrompt}>Next</button>
         </div>
     </div>)
@@ -424,6 +426,19 @@ function Feedback() {
 
 };
 
+function CheckMyOwn(){
+
+  return (
+  
+    <div style={checkMyOwnStyle} id="checkMyOwn" className="container">
+        <h2>Insert your own essay here</h2>
+        <textarea placeholder="Write here"></textarea>
+        <div className="buttonContainer">
+      <button onClick={() => setActivePage(1)}>Back</button>
+      <button type="button" onClick={() => setActivePage(5)}>Get feedback</button>
+      </div>
+      </div>)
+}
 
 
 return (<>
@@ -434,7 +449,7 @@ return (<>
 {activePage === 5 ? <LoadingScreen2/> : null}
 {activePage === 6 ? <Feedback/> : null}
 <Essay/>
-
+<CheckMyOwn/>
 </>
 
 )
