@@ -441,6 +441,7 @@ function CheckMyOwn(){
     setOwnEssayEntered(true);
     console.log(essayResponse);
     console.log(essayPrompt);
+    setActivePage(5)
   };
 
   return (
@@ -454,12 +455,8 @@ function CheckMyOwn(){
       />
       <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button>
-
-        {ownEssayEntered ? (
-          <button type="button" onClick={() => setActivePage(5)}>Get feedback</button>
-        ) : (
-          <button type="button" onClick={() => handleConfirmEntry()}>Confirm Entry</button>
-        )}
+        <button type="button" onClick={() => handleConfirmEntry()}>Get Feedback</button>
+        
       </div>
     </div>
   );
