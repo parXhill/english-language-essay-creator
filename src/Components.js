@@ -429,7 +429,6 @@ function Feedback() {
 
 function CheckMyOwn(){
 
-  const [ownEssayEntered, setOwnEssayEntered] = useState(false);
   const [ownEssay, setOwnEssay] = useState('');
 
   const handleTextareaChange = (event) => {
@@ -438,7 +437,6 @@ function CheckMyOwn(){
 
   const handleConfirmEntry = () => {
     setEssayResponse(ownEssay);
-    setOwnEssayEntered(true);
     console.log(essayResponse);
     console.log(essayPrompt);
     setActivePage(5)
