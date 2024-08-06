@@ -4,6 +4,7 @@ import './Components.css'
 
 export default function Components({feedbackResponse, setExamplesData, essayResponse, activePage, setActivePage, essayPrompt, setEssayPrompt}){
 
+    let checkMyOwnStyle;
     let essayFormStyle;
     let openingStyle;
     let examplesStyle;
