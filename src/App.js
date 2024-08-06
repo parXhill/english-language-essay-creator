@@ -108,7 +108,7 @@ function App() {
 
   return (
     <div className="App">
-        <Components feedbackResponse={feedbackResponse} setExamplesData={setExamplesData} essayResponse={essayResponse} essayPrompt={essayPrompt} setEssayPrompt={setEssayPrompt} activePage={activePage} setActivePage={setActivePage}/>
+        <Components setEssayResponse={setEssayResponse} feedbackResponse={feedbackResponse} setExamplesData={setExamplesData} essayResponse={essayResponse} essayPrompt={essayPrompt} setEssayPrompt={setEssayPrompt} activePage={activePage} setActivePage={setActivePage}/>
         <PromptTemplate examplesData={examplesData} essayPrompt={essayPrompt} gptRequestString={gptRequestString} setGPTRequestString={setGPTRequestString}/>
         <FeedbackTemplate essayResponse={essayResponse} setFeedbackRequestString={setFeedbackRequestString} />
     </div>

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './Components.css'
 
 
-export default function Components({feedbackResponse, setExamplesData, essayResponse, activePage, setActivePage, essayPrompt, setEssayPrompt}){
+export default function Components({setEssayResponse, feedbackResponse, setExamplesData, essayResponse, activePage, setActivePage, essayPrompt, setEssayPrompt}){
 
     let checkMyOwnStyle;
     let essayFormStyle;
@@ -429,16 +429,38 @@ function Feedback() {
 
 function CheckMyOwn(){
 
+  const [ownEssayEntered, setOwnEssayEntered] = useState(false);
+  const [ownEssay, setOwnEssay] = useState('');
+
+  const handleTextareaChange = (event) => {
+    setOwnEssay(event.target.value);
+  };
+
+  const handleConfirmEntry = () => {
+    setEssayResponse(ownEssay);
+    setOwnEssayEntered(true);
+  };
+
   return (
-  
     <div style={checkMyOwnStyle} id="checkMyOwn" className="container">
-        <h2>Insert your own essay here</h2>
-        <textarea placeholder="Write here"></textarea>
-        <div className="buttonContainer">
-      <button onClick={() => setActivePage(1)}>Back</button>
-      <button type="button" onClick={() => setActivePage(5)}>Get feedback</button>
+      <h2>Insert your own essay here</h2>
+      <textarea 
+        id="ownEssay" 
+        placeholder="Write here" 
+        value={ownEssay} 
+        onChange={handleTextareaChange} 
+      />
+      <div className="buttonContainer">
+        <button onClick={() => setActivePage(1)}>Back</button>
+
+        {ownEssayEntered ? (
+          <button type="button" onClick={handleConfirmEntry}>Confirm Entry</button>
+        ) : (
+          <button type="button" onClick={() => setActivePage(5)}>Get feedback</button>
+        )}
       </div>
-      </div>)
+    </div>
+  );
 }
 
 
