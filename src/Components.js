@@ -29,7 +29,6 @@ if (activePage !== 0 ){openingStyle = {display: "none"}}
       <div style={openingStyle} id="opening" className="container">
         <h2>Click here to create an English Language Essay</h2>
         <button onClick={() => setActivePage(1)}>Start</button>
-        <button onClick={()=> setActivePage(7)}>Check my Own Essay Instead</button>
         </div>)
 
 };
@@ -262,7 +261,7 @@ function Examples() {
 
         <div className="buttonContainer">
         <button onClick={() => setActivePage(1)}>Back</button> 
-        {openContentionForm === true ? null :
+        {openContentionForm === true ?  <button onClick={()=> setActivePage(7)}>Check my own essay instead</button> :
         <button onClick={() => setOpenContentionForm(true)} >Optional: Add a contention and paragraph themes</button>
         }
         <button type="button" onClick={submitExamples}>Generate essay</button>
