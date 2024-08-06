@@ -29,6 +29,7 @@ if (activePage !== 0 ){openingStyle = {display: "none"}}
       <div style={openingStyle} id="opening" className="container">
         <h2>Click here to create an English Language Essay</h2>
         <button onClick={() => setActivePage(1)}>Start</button>
+        <button onClick={()=> setActivePage(7)}>Check my Own Essay Instead</button>
         </div>)
 
 };
@@ -150,7 +151,6 @@ function EssayForm() {
         <button id="selectPromptButton" onClick={()=> setPromptSelector(true)}>Select a prompt</button></> )}
         <div className="buttonContainer">
         <button onClick={() => setActivePage(0)}>Back</button>
-        <button onClick={()=> setActivePage(7)}>Check my Own</button>
         <button onClick={handlePrompt}>Next</button>
         </div>
     </div>)
