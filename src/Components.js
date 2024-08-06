@@ -458,7 +458,7 @@ function CheckMyOwn(){
         {ownEssayEntered ? (
           <button type="button" onClick={() => setActivePage(5)}>Get feedback</button>
         ) : (
-          <button type="button" onClick={handleConfirmEntry}>Confirm Entry</button>
+          <button type="button" onClick={() => handleConfirmEntry()}>Confirm Entry</button>
         )}
       </div>
     </div>
