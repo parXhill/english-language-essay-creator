@@ -155,6 +155,18 @@
       border-color: #888888; /* Darker border on active */
     }
 
+    textarea{
+      background-color: #ffffff; /* White background */
+      color: #333333; /* Dark gray text color */
+      border: 1px solid #cccccc; /* Light gray border */
+      padding: 10px; /* Padding for size */
+      border-radius: 5px; /* Rounded corners */
+      font-size: 16px; /* Font size */
+      transition: box-shadow 0.3s ease, border-color 0.3s ease; /* Smooth transitions */
+      outline: none; /* Remove default outline */
+      width: auto;
+      height: auto;
+    }
 
 
   
