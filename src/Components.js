@@ -435,8 +435,8 @@ function CheckMyOwn(){
     setOwnEssay(event.target.value);
   };
 
-  const handleConfirmEntry = () => {
-    setEssayResponse(ownEssay);
+  async function handleConfirmEntry(){
+    await setEssayResponse(ownEssay);
     console.log(essayResponse);
     console.log(essayPrompt);
     setActivePage(5)
