@@ -6,6 +6,8 @@ import React, {useState, useEffect, useCallback} from 'react';
 
 function App() {
 
+  console.log("App re-rendering");
+
 
  const openAIAPIKey = process.env.REACT_APP_OPENAI_API;
 

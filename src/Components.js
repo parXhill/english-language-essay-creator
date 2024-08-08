@@ -24,6 +24,8 @@ if (activePage !== 0 ){openingStyle = {display: "none"}}
 
   function Opening() {
 
+    console.log("Opening re-rendering");
+
     return (
     
       <div style={openingStyle} id="opening" className="container">
@@ -34,6 +36,8 @@ if (activePage !== 0 ){openingStyle = {display: "none"}}
 };
 
 function EssayForm() {
+
+  console.log("essayform re-rendering");
 
   const [promptSelector, setPromptSelector] = useState(true);
   const [promptInput, setPromptInput] = useState("");
@@ -158,6 +162,8 @@ function EssayForm() {
 
 function Examples() {
 
+  console.log("Exampoles re-rendering");
+
     const [openContentionForm, setOpenContentionForm] = useState(false);
     const [addExtraExamples, setAddExtraExamples] = useState(0);
   
@@ -273,6 +279,8 @@ function Examples() {
 
 function LoadingScreen() {
 
+  console.log("LoadingScreen re-rendering");
+
   return (
   
   <div style={loadingScreen} id="loadingScreen" className="container">
@@ -284,6 +292,8 @@ function LoadingScreen() {
 };
 
 function Essay() {
+
+  console.log("Essay re-rendering");
 
   const splitEssay = essayResponse.split(/\*(Introduction|BodyParagraph1|BodyParagraph2|BodyParagraph3|Conclusion)\*/);
 
@@ -376,6 +386,8 @@ function postAllToDiscord() {
 
 function LoadingScreen2() {
 
+  console.log("LoadingScreen2 re-rendering");
+
   return (
   
   <div style={loadingScreen2} id="loadingScreen2" className="container">
@@ -388,6 +400,8 @@ function LoadingScreen2() {
 
 
 function Feedback() {
+
+  console.log("Feedback re-rendering");
 
   const splitFeedback = feedbackResponse.split(/\*(Grade:|Positive feedback:|Improvement tips:)\*/);
 
@@ -427,6 +441,8 @@ function Feedback() {
 };
 
 function CheckMyOwn(){
+
+  console.log("CheckmyOwn re-rendering");
 
   const [ownEssay, setOwnEssay] = useState('');
 
